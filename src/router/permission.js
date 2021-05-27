@@ -16,7 +16,8 @@ const DPSQ__list = [
   '/main/auth/separateAccount',
   '/main/auth/payDetail',
   '/main/auth/refuseReason',
-  '/main/auth/faceVerify'
+  '/main/auth/faceVerify',
+  '/main/auth/phoneSms'
 ]
 const whitelist = [
   '/main/nopage',

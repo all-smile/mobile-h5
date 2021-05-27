@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <public-controls class="appHeader"></public-controls>
+        <!-- <public-controls class="appHeader"></public-controls> -->
         <div class="appBody">
             <!-- <keep-alive>
                 <router-view v-if="$route.meta.keepAlive"></router-view>

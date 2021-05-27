@@ -16,7 +16,7 @@ Vue.use(Router)
 const routes = [
   {
     path: "/",
-    redirect: '/main/auth/phoneVerify',
+    redirect: '/main/auth/phoneSms',
   },
   {
     path: "/test",

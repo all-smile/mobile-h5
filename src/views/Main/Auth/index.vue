@@ -1,19 +1,5 @@
 <template>
     <div class="auth">
-        <!-- <phone-verify v-if="processStatus == 'verifying'" :processStatus.sync="processStatus" :userInfo="userInfo"></phone-verify> -->
-        <!-- <separate-account
-            v-if="processStatus == 'verified'"
-            :processStatus.sync="processStatus"
-        ></separate-account> -->
-        <!-- <confirm-info v-if="processStatus == 'verified'"></confirm-info> -->
-        <!-- <refuse-reason v-if="processStatus == 'refuse'"></refuse-reason> -->
-        <!-- <tips></tips> -->
-        <!-- <face-verify v-if="processStatus == 'face'"></face-verify> -->
-        <!-- <pay-detail v-if="processStatus == 'detail'"></pay-detail> -->
-        <!-- <keep-alive>
-            <router-view v-if="$route.meta.keepAlive"></router-view>
-        </keep-alive>
-        <router-view v-if="!$route.meta.keepAlive"></router-view> -->
         <router-view></router-view>
     </div>
 </template>
@@ -21,24 +7,24 @@
 <script>
 import { setItem, getItem } from '@/libs/utils.js'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
-const PhoneVerify = () => import('./phone-verify/index')
-const SeparateAccount = () => import('./separate-account/index')
-const RefuseReason = () => import('./refuse-reason/index')
-const Tips = () => import('./tips/index')
-const FaceVerify = () => import('./face-verify/index')
-const ConfirmInfo = () => import('./confirm-info/index')
-const PayDetail = () => import('./pay-detail/index')
+// const PhoneVerify = () => import('./phone-verify/index')
+// const SeparateAccount = () => import('./separate-account/index')
+// const RefuseReason = () => import('./refuse-reason/index')
+// const Tips = () => import('./tips/index')
+// const FaceVerify = () => import('./face-verify/index')
+// const ConfirmInfo = () => import('./confirm-info/index')
+// const PayDetail = () => import('./pay-detail/index')
 export default {
     name: 'Auth',
     props: {},
     components: {
-        'phone-verify': PhoneVerify,
-        'separate-account': SeparateAccount,
-        'refuse-reason': RefuseReason,
-        'tips': Tips,
-        'face-verify': FaceVerify,
-        'confirm-info': ConfirmInfo,
-        'pay-detail': PayDetail
+        // 'phone-verify': PhoneVerify,
+        // 'separate-account': SeparateAccount,
+        // 'refuse-reason': RefuseReason,
+        // 'tips': Tips,
+        // 'face-verify': FaceVerify,
+        // 'confirm-info': ConfirmInfo,
+        // 'pay-detail': PayDetail
     },
     data() {
         return {
