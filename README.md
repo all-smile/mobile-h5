@@ -1,37 +1,50 @@
-# mobile-h5
+# financial-innovation-h5
 
-#### 介绍
-移动端，h5前端框架
+## Project setup
 
-#### 软件架构
-软件架构说明
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
 
-#### 安装教程
+```
+npm run serve
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### Compiles and minifies for production
 
-#### 使用说明
+```
+npm run build
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### Lints and fixes files
 
-#### 参与贡献
+```
+npm run lint
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### Customize configuration
 
+See [Configuration Reference](https://cli.vuejs.org/config/).
 
-#### 特技
+## Git 规范 (\*建议)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+提交格式（注意冒号后面有空格）
+git commit -m <type>[optional scope]: <description>
+
+使用 [commitlint](https://github.com/conventional-changelog/commitlint) 工具，常用有以下几种类型：
+
+- feat ：新功能
+- fix ：修复 bug
+- chore ：对构建或者辅助工具的更改
+- refactor ：既不是修复 bug 也不是添加新功能的代码更改
+- style ：不影响代码含义的更改 (例如空格、格式化、少了分号)
+- docs ： 只是文档的更改
+- perf ：提高性能的代码更改
+- revert ：撤回提交
+- test ：添加或修正测试
+- ci : 主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle 等)的提交
+
+举例
+git commit -m 'feat: 增加 xxx 功能'
