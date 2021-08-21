@@ -1,7 +1,7 @@
 import router from './index.js'
 import store from '@/store'
 // import MXEventBus from '@/libs/event'
-import { getStore, getToken } from '@/libs/utils.js'
+import { getStore, getToken, getQueryString } from '@/libs/utils.js'
 import { accessToken, isDev } from '@/libs/config'
 
 /* 

@@ -155,12 +155,27 @@ export const isBoolean = boolean => {
 }
 
 // 截取url参数
+/* 
+http://localhost:8081/#/main/auth/phoneSms
+如果url采用的是hash模式（带有#号），则window.location.search为空字符串
+*/
 export const getQueryString = function (name) {
-  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
-  var r = window.location.search.substr(1).match(reg)
-  if (r != null) {
-    return unescape(r[2])
-  } else {
+  try {
+    let after = "";
+    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+    if (window.location.search) {
+      after = window.location.search.split('?')[1] || ''
+    } else if (window.location.hash) {
+      after = window.location.hash.split('?')[1] || ''
+    }
+    const r = after.match(reg)
+    if (r != null) {
+      return unescape(r[2])
+    } else {
+      return ''
+    }
+  } catch (err) {
+    console.log(err);
     return ''
   }
 }
