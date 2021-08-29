@@ -5,10 +5,7 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "dev": "npm run serve",
-        "build:u8": "vue-cli-service build --mode u8",
-        "build:u6": "vue-cli-service build --mode u6",
-        "build:u8:dev": "vue-cli-service serve --mode u8dev",
-        "build:u6:dev": "vue-cli-service serve --mode u6dev",
+        "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "zip": "node ./bin/zip"
     },
