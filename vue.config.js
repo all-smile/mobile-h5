@@ -4,10 +4,6 @@ const resolve = (dir) => path.join(__dirname, dir);
 
 console.log('NODE_ENV===', process.env.NODE_ENV);
 console.log('IS_PROD===', IS_PROD);
-console.log('VUE_APP_RUNTIME===', process.env.VUE_APP_RUNTIME);
-console.log('VUE_APP_BASEURL===', process.env.VUE_APP_BASEURL);
-console.log('VUE_APP_PREURL===', process.env.VUE_APP_PREURL);
-console.log('VUE_APP_USENAV===', process.env.VUE_APP_USENAV);
 
 module.exports = {
   publicPath: IS_PROD ? './' : '/',  // 公共路径

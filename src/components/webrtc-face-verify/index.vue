@@ -1,13 +1,7 @@
 <template>
     <div class="facePhoto">
-        <!-- <div
-            @click='moveToCameraAVG()'
-            v-cloak
-        >
-            <img
-                v-if="catchFace!==''"
-                :src="catchFace"
-            />
+        <!-- <div class="open-photo" @click='moveToCameraAVG()' v-cloak>
+            <img v-if="catchFace!==''" :src="catchFace" />
             <div class="warm_title2">打开摄像头</div>
         </div> -->
         <div class="facePhoto__see">
@@ -17,9 +11,11 @@
         </div>
         <!-- 用于截图留存的画布 -->
         <canvas id="myCanvasImg" class="facePhoto__canvasImg" style='margin: 0;padding: 0;'></canvas>
-        <!-- <div class="bottom_div">
+        <div class="take-photo">
             <div @click='captureAvg'>拍照</div>
-        </div> -->
+            <div @click='stopStream'>关闭摄像设备</div>
+        </div>
+        <img v-if="catchFace!==''" :src="catchFace" />
     </div>
 </template>
 
@@ -72,8 +68,8 @@ export default {
                 // 加载所有模型数据，models 是存放模型数据文件的目录
                 await faceapi.nets[this.nets].loadFromUri("./models"); // 算法模型
                 await faceapi.loadFaceLandmarkModel("./models"); // 轮廓模型
-                await faceapi.loadFaceExpressionModel("./models"); // 表情模型
-                await faceapi.loadAgeGenderModel("./models"); // 年龄模型
+                // await faceapi.loadFaceExpressionModel("./models"); // 表情模型
+                // await faceapi.loadAgeGenderModel("./models"); // 年龄模型
 
                 // 根据算法模型参数识别调整结果
                 switch (this.nets) {
@@ -135,7 +131,7 @@ export default {
                                 })
                             }
                         });
-                        console.log('carema', carema)
+                        // console.log('carema', carema)
                         if (carema.length === 0) {
                             this.$toast.fail('没有可用摄像设备');
                         }
@@ -200,7 +196,7 @@ export default {
                 // HTMLCanvasElement.toDataURL() 返回一个包含图片展示的data url (base64)
                 var dataURL = this.canvasElImg.toDataURL('image/jpeg'); //dataURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA'
                 this.catchFace = dataURL;
-                this.doVerify()
+                // this.doVerify()
                 // 停止摄像机
                 // this.stopStream();
             }
@@ -241,14 +237,14 @@ export default {
         },
         // 人脸面部勘探轮廓识别绘制
         async fnRunFaceLandmark() {
-            console.log("RunFaceLandmark");
+            // console.log("RunFaceLandmark");
             if (this.videoEl.paused) return clearTimeout(this.timeout);
             // 识别绘制人脸信息
             const result = await faceapi[this.detectFace](
                 this.videoEl,
                 this.options
             ).withFaceLandmarks();
-            console.log('result===', result)
+            // console.log('result===', result)
             if (isArray(result) && result.length > 1) {
                 this.$toast({
                     message: '检测出多张人脸',
@@ -261,7 +257,7 @@ export default {
                     ? faceapi.draw.drawDetections(this.canvasEl, resizeResult)
                     : faceapi.draw.drawFaceLandmarks(this.canvasEl, resizeResult);
                 // 检测到人脸之后 保留图像进行验证
-                !this.isVerifying && this.captureAvg()
+                // !this.isVerifying && this.captureAvg()
             } else {
                 this.canvasEl
                     .getContext("2d")

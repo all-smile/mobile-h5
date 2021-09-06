@@ -4,24 +4,9 @@ import store from '@/store'
 import { getStore, getToken, getQueryString } from '@/libs/utils.js'
 import { accessToken, isDev } from '@/libs/config'
 
-/* 
-DPSQ("DPSQ","“闪签”律师平台资金监管项目"),
-DPPM("DPPM","“爆品趣拍”平台保证金存管项目"),
-DPLM("DPLM","“灵猫”灵活用工平台项目"),
-DPHQ("DPHQ","“伴零工”灵活用工平台项目");
- */
-const DPSQ__list = [
-  '/main/auth/phoneVerify',
-  '/main/auth/confirmInfo',
-  '/main/auth/separateAccount',
-  '/main/auth/payDetail',
-  '/main/auth/refuseReason',
-  '/main/auth/faceVerify',
-  '/main/auth/phoneSms'
-]
 const whitelist = [
   '/main/nopage',
-  ...DPSQ__list,
+  '/main/checkFace',
   ...(isDev ? ['/main'] : [])
 ]
 

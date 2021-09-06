@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import NoPage from './NoPage/index'
-import Auth from './Auth/index'
 
 // 处理 NavigationDuplicated
 const originalPush = Router.prototype.push
@@ -16,7 +15,7 @@ Vue.use(Router)
 const routes = [
   {
     path: "/",
-    redirect: '/main/auth/phoneSms',
+    redirect: '/main/checkFace',
   },
   {
     path: "/test",
@@ -34,7 +33,12 @@ const routes = [
     component: () => import('@/views/Main/index'),
     children: [
       NoPage,
-      Auth,
+      {
+
+        path: 'checkFace',
+        name: 'CheckFace',
+        component: () => import('@/views/Main/CheckFace'),
+      }
     ]
   },
 ];
