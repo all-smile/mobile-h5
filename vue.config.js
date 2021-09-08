@@ -18,7 +18,7 @@ module.exports = {
   chainWebpack: config => {
     config.plugin('html')
       .tap(args => {
-        args[0].title = '金融创新部H5前端框架'
+        args[0].title = 'H5前端框架'
         return args
       })
     // 引入less全局变量
