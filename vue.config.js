@@ -6,7 +6,7 @@ console.log('NODE_ENV===', process.env.NODE_ENV);
 console.log('IS_PROD===', IS_PROD);
 
 module.exports = {
-  publicPath: IS_PROD ? '/mimosa/' : '/',  // 公共路径
+  publicPath: IS_PROD ? '/h5' : '/',  // 公共路径
   indexPath: 'index.html', // 相对于打包路径index.html的路径
   outputDir: process.env.outputDir || 'dist', // 'dist', 生产环境构建文件的目录
   assetsDir: 'static', // 相对于outputDir的静态资源(js、css、img、fonts)目录
@@ -71,7 +71,7 @@ module.exports = {
     },
     host: "0.0.0.0",
     port: 8080, // 端口号
-    https: false, // https:{type:Boolean}
+    https: true, // https:{type:Boolean}
     open: true, //配置自动启动浏览器
     hotOnly: true, // 热更新
     // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理

@@ -1,8 +1,13 @@
 import router from './index.js'
 import store from '@/store'
-// import MXEventBus from '@/libs/event'
+// import $eventBus from '@/libs/event'
 import { getStore, getToken, getQueryString } from '@/libs/utils.js'
 import { accessToken, isDev } from '@/libs/config'
+
+const DPSQ = [
+  '/main/nopage',
+  '/main/checkFace',
+]
 
 const whitelist = [
   '/main/nopage',
@@ -16,8 +21,11 @@ router.beforeEach((to, from, next) => {
     if (to?.meta?.title) {
       document.title = to.meta.title
     }
+    // const { belong = [] } = to.meta
+    // const authInfo = ["platform", "action"]
     // if (accessTokenStr) {
-    //   // 已登录
+    //   // 已登录, 做点什么
+    //   // belong <--> authInfo
     // } else {
     //   next()
     // }

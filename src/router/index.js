@@ -20,6 +20,9 @@ const routes = [
   {
     path: "/test",
     name: "Test",
+    meta: {
+      belong: ["xxx", "xxx"]
+    },
     component: () => import("@/views/test")
   },
   {
