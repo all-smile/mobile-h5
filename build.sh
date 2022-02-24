@@ -1,7 +1,7 @@
 cd $(dirname $0)
 pwd
 # npm install -g yarn
-# yarn
+yarn
 # # 清理缓存
 rm -rf node_modules/.cache
 rm -rf dist
