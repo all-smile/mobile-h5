@@ -48,7 +48,7 @@ const routes = [
 
 const router = new Router({
   mode: 'history',
-  base: '/mimosa/',
+  base: process.env.VUE_APP_PATH,
   routes,
 });
 
