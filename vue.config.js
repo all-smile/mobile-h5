@@ -72,7 +72,7 @@ module.exports = {
     },
     host: "0.0.0.0",
     port: 8080, // 端口号
-    https: true, // https:{type:Boolean}
+    https: false, // https:{type:Boolean}
     open: true, //配置自动启动浏览器
     hotOnly: true, // 热更新
     // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
@@ -94,6 +94,17 @@ module.exports = {
         pathRewrite: {
           "^/api2": "/"
         }
+      },
+      // 模型文件
+      "/model-face": {
+        target: "https://www.i-xiao.space/",
+        changeOrigin: true,
+        //ws: true,//websocket支持
+        secure: false,
+        pathRewrite: {
+          "^/model-face": "/"
+        },
+        logLevel: 'debug',
       },
     }
   }

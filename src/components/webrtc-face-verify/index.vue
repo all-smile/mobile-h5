@@ -65,10 +65,9 @@ export default {
       try {
         this.callback = callback
         // 加载所有模型数据，models 是存放模型数据文件的目录
-        await faceapi.nets[this.nets].loadFromUri("/models"); // 算法模型
-        await faceapi.loadFaceLandmarkModel("/models"); // 轮廓模型
-        // await faceapi.loadFaceExpressionModel("./models"); // 表情模型
-        // await faceapi.loadAgeGenderModel("./models"); // 年龄模型
+        // nginx托管静态资源
+        await faceapi.nets[this.nets].loadFromUri("https://www.i-xiao.space/model-face/"); // 算法模型
+        await faceapi.loadFaceLandmarkModel("https://www.i-xiao.space/model-face/"); // 轮廓模型
 
         // 根据算法模型参数识别调整结果
         switch (this.nets) {

@@ -59,4 +59,11 @@ export default {
     }
     return http.post(api, params)
   },
+  testModel(params) {
+    const api = {
+      url: 'model-face/age_gender_model-weights_manifest.json',
+      mockUrl: ''
+    }
+    return http.get(api, params)
+  },
 }
