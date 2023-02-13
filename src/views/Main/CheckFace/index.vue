@@ -17,6 +17,9 @@
 
 <script>
 import WebrtcFaceVerify from '@components/webrtc-face-verify/index'
+// import WebrtcFaceVerify from '@components/webrtc-face-verify/index_BD'
+
+
 export default {
   name: 'CheckFace',
   props: {},
@@ -35,6 +38,7 @@ export default {
   },
   mounted() {
     // this.test()
+
   },
   methods: {
     async test() {
