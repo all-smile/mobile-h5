@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import WebrtcFaceVerify from '@components/webrtc-face-verify/index'
-// import WebrtcFaceVerify from '@components/webrtc-face-verify/index_BD'
+// import WebrtcFaceVerify from '@components/webrtc-face-verify/index'
+import WebrtcFaceVerify from '@components/webrtc-face-verify/index_BD'
 
 
 export default {

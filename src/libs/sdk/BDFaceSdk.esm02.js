@@ -16189,7 +16189,7 @@ var uaParser = {exports: {}};
 
   /*
   Detect Browser, Engine, OS, CPU, and Device type/model from User-Agent data.
-  Supports browser & node.js environment.
+  Supports browser & node.js environment. 
   Demo   : https://faisalman.github.io/ua-parser-js
   Source : https://github.com/faisalman/ua-parser-js */
   /////////////////////////////////////////////////////////////////////////////////
@@ -19359,12 +19359,12 @@ var DetectRTC$1 = {exports: {}};
         }
 
         browserName = 'IE';
-      } // In Chrome, the true version is after 'Chrome'
+      } // In Chrome, the true version is after 'Chrome' 
       else if (isChrome) {
         verOffset = nAgt.indexOf('Chrome');
         browserName = 'Chrome';
         fullVersion = nAgt.substring(verOffset + 7);
-      } // In Safari, the true version is after 'Safari' or after 'Version'
+      } // In Safari, the true version is after 'Safari' or after 'Version' 
       else if (isSafari) {
         // both and safri and chrome has same userAgent
         if (nAgt.indexOf('CriOS') !== -1) {
@@ -19388,12 +19388,12 @@ var DetectRTC$1 = {exports: {}};
             fullVersion = navigator.userAgent.split('Version/')[1].split(' ')[0];
           }
         }
-      } // In Firefox, the true version is after 'Firefox'
+      } // In Firefox, the true version is after 'Firefox' 
       else if (isFirefox) {
         verOffset = nAgt.indexOf('Firefox');
         browserName = 'Firefox';
         fullVersion = nAgt.substring(verOffset + 8);
-      } // In most other browsers, 'name/version' is at the end of userAgent
+      } // In most other browsers, 'name/version' is at the end of userAgent 
       else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) < (verOffset = nAgt.lastIndexOf('/'))) {
         browserName = nAgt.substring(nameOffset, verOffset);
         fullVersion = nAgt.substring(verOffset + 1);
@@ -20397,7 +20397,7 @@ var RecordRTC = {exports: {}};
   // RecordRTC.js
 
   /**
-   * {@link https://github.com/muaz-khan/RecordRTC|RecordRTC} is a WebRTC JavaScript library for audio/video as well as screen activity recording. It supports Chrome, Firefox, Opera, Android, and Microsoft Edge. Platforms: Linux, Mac and Windows.
+   * {@link https://github.com/muaz-khan/RecordRTC|RecordRTC} is a WebRTC JavaScript library for audio/video as well as screen activity recording. It supports Chrome, Firefox, Opera, Android, and Microsoft Edge. Platforms: Linux, Mac and Windows. 
    * @summary Record audio, video or screen inside the browser.
    * @license {@link https://github.com/muaz-khan/RecordRTC/blob/master/LICENSE|MIT}
    * @author {@link https://MuazKhan.com|Muaz Khan}
@@ -20793,7 +20793,7 @@ var RecordRTC = {exports: {}};
        *    var blob = this.getBlob();
        *    video.src = this.toURL();
        * });
-       *
+       * 
        * // or otherwise
        * recorder.setRecordingDuration(fiveMinutes).onRecordingStopped(function() {
        *    var blob = this.getBlob();
@@ -22848,8 +22848,8 @@ var RecordRTC = {exports: {}};
 
     this.getAllStates = function () {
       return allStates;
-    }; // if any Track within the MediaStream is muted or not enabled at any time,
-    // the browser will only record black frames
+    }; // if any Track within the MediaStream is muted or not enabled at any time, 
+    // the browser will only record black frames 
     // or silence since that is the content produced by the Track
     // so we need to stopRecording as soon as any single track ends.
 
@@ -22956,8 +22956,8 @@ var RecordRTC = {exports: {}};
 
     if (!config.disableLogs) {
       console.log('StereoAudioRecorder is set to record number of channels: ' + numberOfAudioChannels);
-    } // if any Track within the MediaStream is muted or not enabled at any time,
-    // the browser will only record black frames
+    } // if any Track within the MediaStream is muted or not enabled at any time, 
+    // the browser will only record black frames 
     // or silence since that is the content produced by the Track
     // so we need to stopRecording as soon as any single track ends.
 
@@ -23116,34 +23116,34 @@ var RecordRTC = {exports: {}};
 
         var resultingBufferLength = 44 + interleavedLength * 2;
         var buffer = new ArrayBuffer(resultingBufferLength);
-        var view = new DataView(buffer); // RIFF chunk descriptor/identifier
+        var view = new DataView(buffer); // RIFF chunk descriptor/identifier 
 
         writeUTFBytes(view, 0, 'RIFF'); // RIFF chunk length
         // changed "44" to "36" via #401
 
-        view.setUint32(4, 36 + interleavedLength * 2, true); // RIFF type
+        view.setUint32(4, 36 + interleavedLength * 2, true); // RIFF type 
 
-        writeUTFBytes(view, 8, 'WAVE'); // format chunk identifier
+        writeUTFBytes(view, 8, 'WAVE'); // format chunk identifier 
         // FMT sub-chunk
 
-        writeUTFBytes(view, 12, 'fmt '); // format chunk length
+        writeUTFBytes(view, 12, 'fmt '); // format chunk length 
 
         view.setUint32(16, 16, true); // sample format (raw)
 
         view.setUint16(20, 1, true); // stereo (2 channels)
 
-        view.setUint16(22, numberOfAudioChannels, true); // sample rate
+        view.setUint16(22, numberOfAudioChannels, true); // sample rate 
 
         view.setUint32(24, sampleRate, true); // byte rate (sample rate * block align)
 
-        view.setUint32(28, sampleRate * numberOfAudioChannels * 2, true); // block align (channel count * bytes per sample)
+        view.setUint32(28, sampleRate * numberOfAudioChannels * 2, true); // block align (channel count * bytes per sample) 
 
-        view.setUint16(32, numberOfAudioChannels * 2, true); // bits per sample
+        view.setUint16(32, numberOfAudioChannels * 2, true); // bits per sample 
 
         view.setUint16(34, 16, true); // data sub-chunk
-        // data chunk identifier
+        // data chunk identifier 
 
-        writeUTFBytes(view, 36, 'data'); // data chunk length
+        writeUTFBytes(view, 36, 'data'); // data chunk length 
 
         view.setUint32(40, interleavedLength * 2, true); // write the PCM samples
 
@@ -23688,7 +23688,7 @@ var RecordRTC = {exports: {}};
 
         if (!canvasMediaStream) {
           throw 'captureStream API are NOT available.';
-        } // Note: Jan 18, 2016 status is that,
+        } // Note: Jan 18, 2016 status is that, 
         // Firefox MediaRecorder API can't record CanvasCaptureMediaStream object.
 
 
@@ -25005,24 +25005,24 @@ var RecordRTC = {exports: {}};
       } // external library to record as GIF images
 
 
-      gifEncoder = new GIFEncoder(); // void setRepeat(int iter)
-      // Sets the number of times the set of GIF frames should be played.
+      gifEncoder = new GIFEncoder(); // void setRepeat(int iter) 
+      // Sets the number of times the set of GIF frames should be played. 
       // Default is 1; 0 means play indefinitely.
 
-      gifEncoder.setRepeat(0); // void setFrameRate(Number fps)
-      // Sets frame rate in frames per second.
+      gifEncoder.setRepeat(0); // void setFrameRate(Number fps) 
+      // Sets frame rate in frames per second. 
       // Equivalent to setDelay(1000/fps).
       // Using "setDelay" instead of "setFrameRate"
 
-      gifEncoder.setDelay(config.frameRate || 200); // void setQuality(int quality)
-      // Sets quality of color quantization (conversion of images to the
-      // maximum 256 colors allowed by the GIF specification).
-      // Lower values (minimum = 1) produce better colors,
-      // but slow processing significantly. 10 is the default,
-      // and produces good color mapping at reasonable speeds.
+      gifEncoder.setDelay(config.frameRate || 200); // void setQuality(int quality) 
+      // Sets quality of color quantization (conversion of images to the 
+      // maximum 256 colors allowed by the GIF specification). 
+      // Lower values (minimum = 1) produce better colors, 
+      // but slow processing significantly. 10 is the default, 
+      // and produces good color mapping at reasonable speeds. 
       // Values greater than 20 do not yield significant improvements in speed.
 
-      gifEncoder.setQuality(config.quality || 10); // Boolean start()
+      gifEncoder.setQuality(config.quality || 10); // Boolean start() 
       // This writes the GIF Header and returns false if it fails.
 
       gifEncoder.start();
@@ -26004,7 +26004,7 @@ var RecordRTC = {exports: {}};
    * recorder.startRecording()
    *         .then(successCB)
    *         .catch(errorCB);
-   * // Note: You can access all RecordRTC API using "recorder.recordRTC" e.g.
+   * // Note: You can access all RecordRTC API using "recorder.recordRTC" e.g. 
    * recorder.recordRTC.onStateChanged = function(state) {};
    * recorder.recordRTC.setRecordingDuration(5000);
    * @see {@link https://github.com/muaz-khan/RecordRTC|RecordRTC Source Code}
@@ -26180,7 +26180,7 @@ var RecordRTC = {exports: {}};
      *     internalRecorder.addStreams([newAudioStream]);
      *     internalRecorder.resetVideoStreams([screenStream]);
      * }
-     * @returns {Object}
+     * @returns {Object} 
      */
 
 
@@ -26316,7 +26316,6 @@ var RecordRTC = {exports: {}};
     var finished;
 
     function cameraStream() {
-      console.log('cameraStream===========');
       return new ReadableStream({
         start: function start(controller) {
           var cvs = document.createElement('canvas');
@@ -42765,16 +42764,94 @@ function pDefer() {
   return deferred;
 }
 
-var DEMOTION_BROWSER = ['Quark', 'NokiaBrowser'];
+var DEMOTION_BROWSER = ['Quark', 'NokiaBrowser']; // 添加需降级设备
+
+var LOW_VISION_DEVICE = [{
+  os: {
+    name: 'Android',
+    version: '6.0'
+  },
+  device: {
+    vendor: 'Lenovo',
+    model: 'TB3-X70N',
+    type: 'tablet'
+  }
+}, {
+  os: {
+    name: 'Android',
+    version: '8.0.0'
+  },
+  device: {
+    vendor: 'Huawei',
+    model: 'EDISON-AL10',
+    type: 'mobile'
+  }
+}, // 新增安卓12 oppo reno3机型,没有特征信息，可以根据ua里面的信息判断
+{
+  os: {
+    name: 'Android',
+    version: '12'
+  },
+  device: {
+    vendor: undefined,
+    model: 'PDCM00',
+    type: 'mobile'
+  }
+}, // 新增安卓8.0.0 荣耀v8机型
+{
+  os: {
+    name: 'Android',
+    version: '8.0.0'
+  },
+  device: {
+    vendor: 'Huawei',
+    model: 'KNT-UL10',
+    type: 'mobile'
+  }
+}, // 新增安卓12 oppo A92s机型
+{
+  os: {
+    name: 'Android',
+    version: '12'
+  },
+  device: {
+    vendor: undefined,
+    model: 'PDKT00',
+    type: 'mobile'
+  }
+}, // 新增oppo r9s
+{
+  os: {
+    name: 'Android',
+    version: '6.0.1'
+  },
+  device: {
+    vendor: 'OPPO',
+    model: 'R9s',
+    type: 'mobile'
+  }
+}];
 /**
  * 判断设备、浏览器是否降级
  */
 
 var deviceToDemotion = function deviceToDemotion() {
   var uaResult = new UAParser().getResult();
-  var browser = uaResult.browser;
+  var browser = uaResult.browser,
+      os = uaResult.os,
+      device = uaResult.device;
 
   if (browser.name && DEMOTION_BROWSER.includes(browser.name)) {
+    return false;
+  }
+
+  var haveLowVision = LOW_VISION_DEVICE.find(function (lowDevice) {
+    return lowDevice.device.vendor === device.vendor // TODO：把这个给注释掉
+    // && lowDevice.device.model === device.model
+    && lowDevice.os.name === os.name && lowDevice.os.version === os.version;
+  });
+
+  if (haveLowVision) {
     return false;
   }
 
@@ -42866,7 +42943,6 @@ var BDFaceLiveDetection = /*#__PURE__*/function (_EventEmitter) {
 
     _defineProperty$3(_assertThisInitialized$2(_this), "loadModels", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
       return regeneratorRuntime.wrap(function _callee$(_context) {
-        console.log('loadModels----');
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -43258,7 +43334,6 @@ var BDFaceLiveDetection = /*#__PURE__*/function (_EventEmitter) {
         while (1) {
           switch (_context9.prev = _context9.next) {
             case 0:
-              console.log('detectionSuccess==============');
               if (!((_this$options = _this.options) !== null && _this$options !== void 0 && _this$options.useSecure)) {
                 _context9.next = 16;
                 break;
@@ -43271,7 +43346,6 @@ var BDFaceLiveDetection = /*#__PURE__*/function (_EventEmitter) {
               return _this.compressImage();
 
             case 5:
-              console.log(55555555)
               images = _context9.sent;
               images.forEach(function (image) {
                 XafSdk.encrypt({
@@ -43292,7 +43366,6 @@ var BDFaceLiveDetection = /*#__PURE__*/function (_EventEmitter) {
                 },
                 jr: XafSdk.reportf()
               };
-              console.log('params=', params)
 
               if (!_this.options.needToRecord) {
                 _context9.next = 13;

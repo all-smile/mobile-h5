@@ -41,6 +41,12 @@ const routes = [
         path: 'checkFace',
         name: 'CheckFace',
         component: () => import('@/views/Main/CheckFace'),
+      },
+      {
+
+        path: 'checkFaceV2',
+        name: 'CheckFaceV2',
+        component: () => import('@/views/Main/CheckFaceV2'),
       }
     ]
   },

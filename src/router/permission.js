@@ -12,6 +12,7 @@ const DPSQ = [
 const whitelist = [
   '/main/nopage',
   '/main/checkFace',
+  '/main/checkFaceV2',
   ...(isDev ? ['/main'] : [])
 ]
 
