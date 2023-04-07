@@ -1,4 +1,5 @@
 // 存放工具函数
+import moment from 'moment/moment'
 import { accessToken } from './config'
 
 /* --------------内部方法---------------- */
@@ -155,7 +156,7 @@ export const isBoolean = boolean => {
 }
 
 // 截取url参数
-/* 
+/*
 http://localhost:8081/#/main/auth/phoneSms
 如果url采用的是hash模式（带有#号），则window.location.search为空字符串
 */
@@ -240,5 +241,44 @@ export const deDuplication = function (arr) {
 export const getToken = () => {
   return {
     [accessToken]: JSON.parse(getItem(accessToken) || '{}').value || '',
+  }
+}
+
+// 判断日期是不是今天、昨天、返回值[string]: 0:今天， -1:昨天 , 1-明天
+// str: 2023-02-17 14:09:27
+export function isWhichDay(str) {
+  const that = new Data(str).setHours(0,0,0,0)
+  const today = new Data().setHours(0,0,0,0)
+  const obj = {
+    '-86400000': '-1',
+    0: '0',
+    86400000: '1',
+  }
+  return obj[that - today] || null
+}
+
+// 判断日期是不是当年，返回布尔值
+export function isCurYear(str) {
+  return moment().format("YYYY") === moment(str).format("YYYY")
+}
+
+/**
+ * 格式化传入时间
+ * 1、当天的显示如： 16:20
+ * 2、昨天的显示如： 昨天 16:20
+ * 3、昨天之前且当年的，显示如： 03-03 16:20
+ * 4、昨天之前且跨年的，显示如： 2023-03-03 16:20
+ * 传入时间 2023-02-17 16:20:27
+ */
+export function formatTime(time) {
+  const t = isWhichDay(time)
+  if (t === '0') {
+    return moment(time).format("HH:mm")
+  } else if (t === '-1') {
+    return `昨天 ${moment(time).format("HH:mm")}`
+  } else if (isCurYear(time) && new Date(time).getTime() < new Date().getTime()) {
+    return moment(time).format("MM-DD HH:mm")
+  } else {
+    return moment(time).format("YYYY-MM-DD HH:mm")
   }
 }

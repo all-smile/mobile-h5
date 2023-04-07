@@ -8,6 +8,9 @@ var zip = new require('node-zip')();
 
 var root = path.join(__dirname, '../');
 
+const zipDir = process.argv
+console.log('zipDir', zipDir);
+
 function addFile(instance, folder) {
     const files = fs.readdirSync(folder);
     for (let i = 0, len = files.length; i < len; i++) {

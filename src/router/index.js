@@ -46,7 +46,7 @@ const routes = [
 
         path: 'checkFaceV2',
         name: 'CheckFaceV2',
-        component: () => import('@/views/Main/CheckFaceV2'),
+        component: () => import('@/views/Main/CheckFaceV2/faceDemo.vue'),
       }
     ]
   },

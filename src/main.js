@@ -5,6 +5,7 @@ import { sync } from 'vuex-router-sync'
 import router from "./router";
 import store from "./store";
 import './router/permission'
+import "./directive/index"
 
 import '@/globalComponents'
 
