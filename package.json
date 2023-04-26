@@ -7,13 +7,15 @@
         "dev": "npm run serve",
         "build": "vue-cli-service build --mode prod",
         "lint": "vue-cli-service lint",
-        "zip": "node ./bin/zip"
+        "zip:test": "npm run build && node ./bin/zip dist",
+        "zip": "node ./bin/zip dist"
     },
     "dependencies": {
         "@vant/touch-emulator": "^1.2.0",
         "axios": "^0.21.1",
         "core-js": "^3.6.5",
         "element-ui": "^2.15.13",
+        "execa": "^5.1.1",
         "face-api.js": "^0.22.2",
         "moment": "^2.29.1",
         "querystring": "^0.2.1",

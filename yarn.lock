@@ -3200,6 +3200,15 @@
     "shebang-command" "^2.0.0"
     "which" "^2.0.1"
 
+"cross-spawn@^7.0.3":
+  "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
+  "resolved" "https://registry.npmmirror.com/cross-spawn/-/cross-spawn-7.0.3.tgz"
+  "version" "7.0.3"
+  dependencies:
+    "path-key" "^3.1.0"
+    "shebang-command" "^2.0.0"
+    "which" "^2.0.1"
+
 "crypto-browserify@^3.11.0":
   "integrity" "sha1-OWz58xN/A+S45TLFj2mCVOAPgOw="
   "resolved" "https://registry.npm.taobao.org/crypto-browserify/download/crypto-browserify-3.12.0.tgz"
@@ -4095,8 +4104,8 @@
     "strip-eof" "^1.0.0"
 
 "execa@^1.0.0":
-  "integrity" "sha1-xiNqW7TfbW8V6I5/AXeYIWdJ3dg="
-  "resolved" "https://registry.npm.taobao.org/execa/download/execa-1.0.0.tgz?cache=0&sync_timestamp=1606970920652&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fexeca%2Fdownload%2Fexeca-1.0.0.tgz"
+  "integrity" "sha512-adbxcyWV46qiHyvSp50TKt05tB4tK3HcmF7/nxfAdhnox83seTDbwnaqKO4sXRy7roHAIFqJP/Rw/AuEbX61LA=="
+  "resolved" "https://registry.npmmirror.com/execa/-/execa-1.0.0.tgz"
   "version" "1.0.0"
   dependencies:
     "cross-spawn" "^6.0.0"
@@ -4136,6 +4145,21 @@
     "onetime" "^5.1.0"
     "p-finally" "^2.0.0"
     "signal-exit" "^3.0.2"
+    "strip-final-newline" "^2.0.0"
+
+"execa@^5.1.1":
+  "integrity" "sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg=="
+  "resolved" "https://registry.npmmirror.com/execa/-/execa-5.1.1.tgz"
+  "version" "5.1.1"
+  dependencies:
+    "cross-spawn" "^7.0.3"
+    "get-stream" "^6.0.0"
+    "human-signals" "^2.1.0"
+    "is-stream" "^2.0.0"
+    "merge-stream" "^2.0.0"
+    "npm-run-path" "^4.0.1"
+    "onetime" "^5.1.2"
+    "signal-exit" "^3.0.3"
     "strip-final-newline" "^2.0.0"
 
 "expand-brackets@^2.1.4":
@@ -4616,8 +4640,8 @@
   "version" "3.0.0"
 
 "get-stream@^4.0.0":
-  "integrity" "sha1-wbJVV189wh1Zv8ec09K0axw6VLU="
-  "resolved" "https://registry.npm.taobao.org/get-stream/download/get-stream-4.1.0.tgz"
+  "integrity" "sha512-GMat4EJ5161kIy2HevLlr4luNjBgvmj413KaQA7jt4V8B4RDsfpHk7WQ9GVqfYyyx8OS/L66Kox+rJRNklLK7w=="
+  "resolved" "https://registry.npmmirror.com/get-stream/-/get-stream-4.1.0.tgz"
   "version" "4.1.0"
   dependencies:
     "pump" "^3.0.0"
@@ -4628,6 +4652,11 @@
   "version" "5.2.0"
   dependencies:
     "pump" "^3.0.0"
+
+"get-stream@^6.0.0":
+  "integrity" "sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg=="
+  "resolved" "https://registry.npmmirror.com/get-stream/-/get-stream-6.0.1.tgz"
+  "version" "6.0.1"
 
 "get-value@^2.0.3", "get-value@^2.0.6":
   "integrity" "sha1-3BXKHGcjh8p2vTesCjlbogQqLCg="
@@ -5100,6 +5129,11 @@
   "integrity" "sha1-xbHNFPUK6uCatsWf5jujOV/k36M="
   "resolved" "https://registry.npm.taobao.org/human-signals/download/human-signals-1.1.1.tgz"
   "version" "1.1.1"
+
+"human-signals@^2.1.0":
+  "integrity" "sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw=="
+  "resolved" "https://registry.npmmirror.com/human-signals/-/human-signals-2.1.0.tgz"
+  "version" "2.1.0"
 
 "husky@^6.0.0":
   "integrity" "sha1-gQ8RhprfUWBMMupXftvDd9f5MZ4="
@@ -6661,6 +6695,13 @@
   dependencies:
     "path-key" "^3.0.0"
 
+"npm-run-path@^4.0.1":
+  "integrity" "sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw=="
+  "resolved" "https://registry.npmmirror.com/npm-run-path/-/npm-run-path-4.0.1.tgz"
+  "version" "4.0.1"
+  dependencies:
+    "path-key" "^3.0.0"
+
 "nth-check@^1.0.2":
   "integrity" "sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw="
   "resolved" "https://registry.npm.taobao.org/nth-check/download/nth-check-1.0.2.tgz?cache=0&sync_timestamp=1606860690670&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnth-check%2Fdownload%2Fnth-check-1.0.2.tgz"
@@ -6793,7 +6834,7 @@
   dependencies:
     "mimic-fn" "^1.0.0"
 
-"onetime@^5.1.0":
+"onetime@^5.1.0", "onetime@^5.1.2":
   "integrity" "sha1-0Oluu1awdHbfHdnEgG5SN5hcpF4="
   "resolved" "https://registry.nlark.com/onetime/download/onetime-5.1.2.tgz"
   "version" "5.1.2"
@@ -8399,10 +8440,10 @@
   "resolved" "https://registry.npm.taobao.org/shell-quote/download/shell-quote-1.7.2.tgz"
   "version" "1.7.2"
 
-"signal-exit@^3.0.0", "signal-exit@^3.0.2":
-  "integrity" "sha1-oUEMLt2PB3sItOJTyOrPyvBXRhw="
-  "resolved" "https://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.3.tgz"
-  "version" "3.0.3"
+"signal-exit@^3.0.0", "signal-exit@^3.0.2", "signal-exit@^3.0.3":
+  "integrity" "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ=="
+  "resolved" "https://registry.npmmirror.com/signal-exit/-/signal-exit-3.0.7.tgz"
+  "version" "3.0.7"
 
 "simple-swizzle@^0.2.2":
   "integrity" "sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo="

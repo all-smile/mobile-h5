@@ -2,7 +2,7 @@
 node_modules
 /dist*
 *.zip
-
+output/
 
 # local env files
 .env.local
