@@ -1,5 +1,6 @@
+/* eslint-disable */
 // 注册全局自定义指令， `v-imgSrc` 占位显示
-// /* eslint-disable */
+import Vue from "vue";
 
 const initImg = require("@assets/images/initImg.jpg");
 Vue.directive("imgSrc", {

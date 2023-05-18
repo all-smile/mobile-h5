@@ -11,13 +11,17 @@
     <div class="open-face">
       <van-button type="primary" @click="notifyPhoto">开始人脸识别</van-button>
     </div>
-    <webrtc-face-verify v-if="openFaceVerify" ref="faceVerifyCtrl" :openFaceVerify.sync="openFaceVerify"></webrtc-face-verify>
+    <webrtc-face-verify
+      v-if="openFaceVerify"
+      ref="faceVerifyCtrl"
+      :openFaceVerify.sync="openFaceVerify"
+    ></webrtc-face-verify>
   </div>
 </template>
 
 <script>
 // import WebrtcFaceVerify from '@components/webrtc-face-verify/index'
-import WebrtcFaceVerify from '@components/webrtc-face-verify/index_BD'
+import WebrtcFaceVerify from '@components/bd-face-verify/index'
 
 
 export default {
@@ -51,12 +55,12 @@ export default {
     },
     notifyPhoto() {
       this.openFaceVerify = true
-      this.$nextTick(() => {
-        this.$refs.faceVerifyCtrl && this.$refs.faceVerifyCtrl.initFaceApiModel((res) => {
-          // this.handleStatus(res) // 返回识别成功或失败
-          console.log(res);
-        })
-      })
+      // this.$nextTick(() => {
+      //   this.$refs.faceVerifyCtrl && this.$refs.faceVerifyCtrl.initFaceApiModel((res) => {
+      //     // this.handleStatus(res) // 返回识别成功或失败
+      //     console.log(res);
+      //   })
+      // })
     },
   },
   updated() { },

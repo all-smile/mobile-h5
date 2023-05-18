@@ -93,7 +93,7 @@ export default {
           audio: false
         },
         // 模型⽂件url前缀, 默认是当前⻚⾯根路径,可不传
-        modelPath: '/models',
+        modelPath: '.', // '/models',
         // 可通过调节遮挡部位阈值，来调整遮挡判断。
         occlusion: {
           eye: 0.8,
