@@ -43,7 +43,7 @@
 <script>
 import BDFaceLiveDetection from '@/libs/sdk/BDFaceSdk.esm.min.js';
 
-console.log('BDFaceLiveDetection', BDFaceLiveDetection);
+// console.log('BDFaceLiveDetection', BDFaceLiveDetection);
 // const IS_PROD = ["production", 'prod'].includes(process.env.NODE_ENV)
 
 // 动作乱序

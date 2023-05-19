@@ -3226,6 +3226,11 @@
     "randombytes" "^2.0.0"
     "randomfill" "^1.0.3"
 
+"crypto-js@^4.1.1":
+  "integrity" "sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw=="
+  "resolved" "https://registry.npmmirror.com/crypto-js/-/crypto-js-4.1.1.tgz"
+  "version" "4.1.1"
+
 "css-color-names@^0.0.4", "css-color-names@0.0.4":
   "integrity" "sha1-gIrcLnnPhHOAabZGyyDsJ762KeA="
   "resolved" "https://registry.npm.taobao.org/css-color-names/download/css-color-names-0.0.4.tgz"
@@ -5735,6 +5740,11 @@
   "integrity" "sha1-peZUwuWi3rXyAdls77yoDA7y9RM="
   "resolved" "https://registry.npm.taobao.org/jsbn/download/jsbn-0.1.1.tgz"
   "version" "0.1.1"
+
+"jsencrypt@^3.3.2":
+  "integrity" "sha512-arQR1R1ESGdAxY7ZheWr12wCaF2yF47v5qpB76TtV64H1pyGudk9Hvw8Y9tb/FiTIaaTRUyaSnm5T/Y53Ghm/A=="
+  "resolved" "https://registry.npmmirror.com/jsencrypt/-/jsencrypt-3.3.2.tgz"
+  "version" "3.3.2"
 
 "jsesc@^2.5.1":
   "integrity" "sha1-gFZNLkg9rPbo7yCWUKZ98/DCg6Q="
