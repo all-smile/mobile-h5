@@ -49,3 +49,15 @@ mqFMSEZCex+BEEkutSXxG47okpp1KCuDJ48clJ112Zldz1tW3xWlmdVHf94I0JJ6
 zi4TwI956uJ4hQ0hkElsxjGRQd9VhXGotUgcjTQFsxeG
 -----END RSA PRIVATE KEY-----
 `;
+
+/**
+ * 常量定义
+ * 不同服务接口调用路径前缀配置
+ */
+const { VUE_APP_SEV_ISP, VUE_APP_SEV_ADM } = process.env;
+export const apiPrefix = {
+  isp: VUE_APP_SEV_ISP,
+  adm: VUE_APP_SEV_ADM,
+};
+
+export const baseUrl = process.env.VUE_APP_BASEURL;

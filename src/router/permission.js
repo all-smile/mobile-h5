@@ -1,26 +1,24 @@
-import router from './index.js'
-import store from '@/store'
+import router from "./index.js";
+import store from "@/store";
 // import $eventBus from '@/libs/event'
-import { getStore, getToken, getQueryString } from '@/libs/utils.js'
-import { accessToken, isDev } from '@/libs/config'
+import { getStore, getToken, getQueryString } from "@/libs/utils.js";
+import { accessToken, isDev } from "@/libs/config";
 
-const DPSQ = [
-  '/main/nopage',
-  '/main/checkFace',
-]
+const DPSQ = ["/main/nopage", "/main/checkFace"];
 
 const whitelist = [
-  '/main/nopage',
-  '/main/checkFace',
-  '/main/checkFaceV2',
-  ...(isDev ? ['/main'] : [])
-]
+  "/list",
+  "/main/nopage",
+  "/main/checkFace",
+  "/main/checkFaceV2",
+  ...(isDev ? ["/main"] : []),
+];
 
 router.beforeEach((to, from, next) => {
   try {
     // let accessTokenStr = getToken()[accessToken]
     if (to?.meta?.title) {
-      document.title = to.meta.title
+      document.title = to.meta.title;
     }
     // const { belong = [] } = to.meta
     // const authInfo = ["platform", "action"]
@@ -30,29 +28,28 @@ router.beforeEach((to, from, next) => {
     // } else {
     //   next()
     // }
-    let isNext = false
+    let isNext = false;
     if (whitelist.includes(to.path)) {
-      isNext = true
+      isNext = true;
     }
 
     if (isNext) {
-      next()
+      next();
     } else {
-      console.log(to.path + ' is unavailable!')
+      console.log(to.path + " is unavailable!");
       next({
-        path: '/main/nopage',
+        path: "/main/nopage",
         replace: true,
         query: {
-          errPath: to.path
-        }
-      })
+          errPath: to.path,
+        },
+      });
     }
   } catch (err) {
     console.log(err);
   }
-})
+});
 
 router.afterEach(() => {
   window.scrollTo(0, 0);
 });
-

@@ -78,6 +78,16 @@ module.exports = {
     // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
     proxy: {
       //配置多个跨域
+      "/api": {
+        target: "http://172.11.11.11:7071",
+        changeOrigin: true,
+        // ws: true,//websocket支持
+        secure: false,
+        pathRewrite: {
+          "^/api": "",
+        },
+        logLevel: "debug",
+      },
       "/h5api": {
         target: "http://172.11.11.11:7071",
         changeOrigin: true,
@@ -86,6 +96,7 @@ module.exports = {
         pathRewrite: {
           "^/h5api": "",
         },
+        logLevel: "debug",
       },
       "/api2": {
         target: "http://172.12.12.12:2018",
@@ -95,6 +106,7 @@ module.exports = {
         pathRewrite: {
           "^/api2": "/",
         },
+        logLevel: "debug",
       },
       // 模型文件
       "/model-face": {

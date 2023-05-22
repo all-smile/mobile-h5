@@ -1,12 +1,33 @@
 <template>
   <div class="list">
     <van-tabs v-model="listQuery.isFinish" @change="onChange">
-      <van-tab v-for="item in statusList" :key="item.val" :name="item.val" :title="item.desc">
-        <div ref="tabContWare" class="tab_cont" v-if="listQuery.isFinish === item.val">
-          <scroll-wrap v-if="item.val !== ''" @pullingDown="onPullingDown" @pullingUp="onPullingUp" :refreshInfo="refreshInfo" :immediateCheck="false">
+      <van-tab
+        v-for="item in statusList"
+        :key="item.val"
+        :name="item.val"
+        :title="item.desc"
+      >
+        <div
+          ref="tabContWare"
+          class="tab_cont"
+          v-if="listQuery.isFinish === item.val"
+        >
+          <scroll-wrap
+            v-if="item.val !== ''"
+            @pullingDown="onPullingDown"
+            @pullingUp="onPullingUp"
+            :refreshInfo="refreshInfo"
+            :immediateCheck="false"
+          >
             <template v-slot:content>
               <template v-if="listData.length > 0">
-                <tab-content v-for="(item, index) in listData" :key="`${item.operId}-${index}`" :itemData="item" :isFinished="listQuery.isFinish" @keepPos="keepPos"></tab-content>
+                <tab-content
+                  v-for="(item, index) in listData"
+                  :key="`${item.operId}-${index}`"
+                  :itemData="item"
+                  :isFinished="listQuery.isFinish"
+                  @keepPos="keepPos"
+                ></tab-content>
               </template>
             </template>
           </scroll-wrap>
@@ -80,9 +101,11 @@ export default {
   },
   methods: {
     initData() {
+      console.log(4444);
       this.refreshInfo.isRefreshing = true
       fetchTaskList(this.listQuery)
         .then((res) => {
+          console.log(res);
           let { total = 0, records: list = [] } = res || {}
           total = total || 0
           list = list || []
@@ -132,7 +155,7 @@ export default {
     // 下拉刷新
     onPullingDown() {
       this.listQuery.current = 1,
-      this.initData()
+        this.initData()
     },
 
     // 上拉加载更多
@@ -158,10 +181,10 @@ export default {
     }
     next()
   },
-  activated(){
+  activated() {
     if (!this.$route.meta.isBack) {
       // 不是从详情页返回，则获取需要打开的tab页，定位到顶部并触发下拉刷新
-      const {isFinish = 'N'} = this.$route.params
+      const { isFinish = 'N' } = this.$route.params
       this.listQuery.isFinish = isFinish
       this.$refs.tabContWare[0].scrollTop = 0
       this.onPullingDown()
