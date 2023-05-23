@@ -1,28 +1,27 @@
 //空白间距
 .blank-margin(@num: 10px) {
-    .padding(0px, @num, 0px, @num);
+  .padding(0px, @num, 0px, @num);
 }
 
 .navView {
-    // border:1px solid red;
-    position: fixed;
-    left: 0;
-    .top(44px);
-    right: 0;
-    .bottom(50px);
-    // z-index: 999;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+  // border:1px solid red;
+  position: fixed;
+  left: 0;
+  top: 0.44rem;
+  right: 0;
+  bottom: 0.5rem;
+  // z-index: 999;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
-.line-clamp(@line) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: @line;
-    /*! autoprefixer: off */
-    -webkit-box-orient: vertical;
-    /* autoprefixer: on */
-    word-wrap: break-word;
-    word-break: break-all;
+.line_clamp(@line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  word-break: break-all;
 }
