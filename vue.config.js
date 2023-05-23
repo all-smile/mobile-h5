@@ -29,7 +29,7 @@ module.exports = {
         .loader("sass-resources-loader")
         .options({
           resources: [
-            path.resolve(__dirname, "./src/assets/less/base.less"), // 不采用此移动端适配方案
+            // path.resolve(__dirname, "./src/assets/less/base.less"), // 不采用此移动端适配方案
             path.resolve(__dirname, "./src/assets/less/public.less"),
           ],
         })
