@@ -85,3 +85,11 @@ export const fetchTaskList = (data) => {
   };
   return http.get(api, data);
 };
+
+export const fetchApproveUserList = (data) => {
+  const api = {
+    url: "",
+    mockUrl: "",
+  };
+  return http.get(api, data);
+};

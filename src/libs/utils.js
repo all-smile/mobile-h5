@@ -1,6 +1,7 @@
 // 存放工具函数
 import moment from "moment/moment";
 import { accessToken } from "./config";
+import { isDev, baseUrl } from "./config";
 
 /* --------------内部方法---------------- */
 
@@ -239,7 +240,7 @@ export const deDuplication = function (arr) {
  */
 export const getToken = () => {
   return {
-    [accessToken]: JSON.parse(getItem(accessToken) || "{}").value || "",
+    [accessToken]: getItem(accessToken) || "",
   };
 };
 
@@ -285,4 +286,29 @@ export function formatTime(time) {
   } else {
     return moment(time).format("YYYY-MM-DD HH:mm");
   }
+}
+
+// fileName: aa.jpg
+export function isImg(fileName) {
+  if (!fileName) {
+    return false;
+  }
+
+  const index = fileName.lastIndexOf(".");
+  if (index === -1) {
+    return false;
+  }
+  const ext = fileName.substring(index + 1);
+
+  if (!ext) {
+    return false;
+  }
+
+  return extArr.indexOf(ext.toLowerCase()) !== -1;
+}
+
+export function processFileUrl(fileId) {
+  const accessToken = encodeURI(getToken()[accessToken]);
+  const path = `/api/fnd/file/preview/${fileId}?accessToken=${accessToken}`;
+  return isDev ? `${baseUrl}${path}` : baseUrl + path;
 }

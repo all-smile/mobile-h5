@@ -8,3 +8,11 @@ export const testModel = (data) => {
   };
   return http.get(api, data);
 };
+
+export const fileUpload = (data) => {
+  const api = {
+    url: "model-face/age_gender_model-weights_manifest.json",
+    mockUrl: "",
+  };
+  return http.get(api, data);
+};

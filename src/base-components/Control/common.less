@@ -1,0 +1,19 @@
+.control_must {
+  /deep/ .van-cell__title {
+    position: relative;
+    &::before {
+      content: "*";
+      display: inline-block;
+      position: absolute;
+      left: -10px;
+      top: 10px;
+      transform: translateY(-50%);
+      color: red;
+    }
+  }
+}
+.text-cont {
+  padding: 10px 16px;
+  display: flex;
+  line-height: 24px;
+}
