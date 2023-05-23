@@ -2,24 +2,39 @@
   <div class="list_card" @click="viewDetail(itemData.operId)">
     <div class="list_card-ware">
       <div class="list_card-title">
-        <div v-if="itemData.bizTypeInfo" class="list_card-type" :style="{backgound: itemData.bizTypeInfo.color}">
-          {{itemData.bizTypeInfo.name}}
+        <div
+          v-if="itemData.bizTypeInfo"
+          class="list_card-type"
+          :style="{
+            backgound: itemData.bizTypeInfo.color || 'rgba(0,0,255,0.3)',
+          }"
+        >
+          {{ itemData.bizTypeInfo.name }}
         </div>
       </div>
       <div class="list_card-cont">
         <p class="list_card-p">
           <span class="list_card-span align-mid">
-            {{itemData.title}}
+            {{ itemData.title }}
           </span>
         </p>
         <!-- 预警等级 EOP_WARNING -->
-        <span v-if="itemData.bizType === 'EOP_WARNING'" class="list_card-warn" :style="{border: `1px solid ${itemData.ewLevelInfo.color}`, color: itemData.ewLevelInfo.color}">
-          {{itemData.ewLevelInfo.name}}
+        <span
+          v-if="itemData.bizType === 'EOP_WARNING'"
+          class="list_card-warn"
+          :style="{
+            border: `1px solid ${
+              itemData.ewLevelInfo.color || 'rgba(0,0,255,0.3)'
+            }`,
+            color: itemData.ewLevelInfo.color || 'rgba(0,0,255,0.3)',
+          }"
+        >
+          {{ itemData.ewLevelInfo.name }}-{{ itemData.ewTypeName }}
         </span>
       </div>
     </div>
     <p class="list_card-time">
-      {{isFinish === 'Y' ? itemData._operTime : itemData._createTime}}
+      {{ isFinish === "Y" ? itemData._operTime : itemData._createTime }}
     </p>
   </div>
 </template>

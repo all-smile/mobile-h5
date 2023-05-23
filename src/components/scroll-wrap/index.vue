@@ -1,6 +1,17 @@
 <template>
-  <van-pull-refresh v-model="refreshInfo.isRefreshing" @refresh="onRefresh" class="refresh_ware">
-    <van-list v-model="refreshInfo.loading" offset="150" :finished="refreshInfo.isFinished" :immediate-check="immediateCheck" finished-text="没有更多了" @load="onLoad">
+  <van-pull-refresh
+    v-model="refreshInfo.isRefreshing"
+    @refresh="onRefresh"
+    class="refresh_ware"
+  >
+    <van-list
+      v-model="refreshInfo.loading"
+      offset="150"
+      :finished="refreshInfo.isFinished"
+      :immediate-check="immediateCheck"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
       <slot name="content"></slot>
     </van-list>
   </van-pull-refresh>

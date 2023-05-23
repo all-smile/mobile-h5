@@ -115,7 +115,7 @@ const codeMessage = {
 instance.interceptors.request.use(
   (config) => {
     // 在发送请求之前做些什么
-    console.log("request", config);
+    // console.log("request", config);
     if (config.url) {
       config.headers = {
         ...config.headers,

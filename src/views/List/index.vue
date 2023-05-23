@@ -65,16 +65,16 @@ export default {
         isFinish: "N", // Y-已办 N-待办
       },
       listData: Object.freeze([
-        {
-          operId: '123',
-          bizType: 'EOP_WITHDRAWALS', // 提款申请
-          todoTaskType: '',
-          title: '河南省郑州市金水区发起的提款申请，提款金额8960.00元',
-          operTime: '2023-03-15 10:00',
-          createTime: '2023-03-15 10:00',
-          ewLevel: 'COMMON',
-          ewLevelName: '一般预警'
-        }
+        // {
+        //   operId: '123',
+        //   bizType: 'EOP_WITHDRAWALS', // 提款申请
+        //   todoTaskType: '',
+        //   title: '河南省郑州市金水区发起的提款申请，提款金额8960.00元',
+        //   operTime: '2023-03-15 10:00',
+        //   createTime: '2023-03-15 10:00',
+        //   ewLevel: 'COMMON',
+        //   ewLevelName: '一般预警'
+        // }
       ]),
       statusList: Object.freeze([
         {
@@ -98,46 +98,58 @@ export default {
     this.initData()
   },
   mounted() {
+    this.$EventBus.on('delTaskItem', ({ operId }) => {
+      console.log('delTaskItem', operId);
+      // 手动删除
+      this.listData.splice(this.listData.findIndex(item => item.operId === operId), 1)
+    })
   },
   methods: {
     initData() {
-      console.log(4444);
-      this.refreshInfo.isRefreshing = true
-      fetchTaskList(this.listQuery)
-        .then((res) => {
-          console.log(res);
-          let { total = 0, records: list = [] } = res || {}
-          total = total || 0
-          list = list || []
-          if (+total === 0) {
+      try {
+        this.refreshInfo.isRefreshing = true
+        fetchTaskList(this.listQuery)
+          .then((res) => {
+            console.log(res);
+            let { total = 0, records: list = [] } = res || {}
+            total = total || 0
+            list = list || []
+            if (+total === 0) {
+              this.refreshInfo.isFinished = true
+            }
+            let tmpArr = []
+            if (list && Array.isArray(list) && list.length > 0) {
+              list.forEach(item => {
+                if (item.createTime) {
+                  item._createTime = formatTime(item.createTime)
+                }
+                if (item.operTime) {
+                  item._operTime = formatTime(item.operTime)
+                }
+                let obj = { ...item }
+                obj.bizTypeInfo = EopBizTypeEnum[item.bizType]
+                obj.ewLevelInfo = EwLevel[item.ewLevel || 'DEFAULT']
+                tmpArr.push(obj)
+              })
+            }
+            if (this.listQuery.current === 1) {
+              this.listData = Object.assign([], [...tmpArr])
+            } else {
+              this.listData = Object.assign([], [this.listData.concat(tmpArr)])
+            }
+            if (parseInt(total) === this.listData.length) {
+              this.refreshInfo.isFinished = true
+            }
+            this.loaded()
+          })
+          .catch(err => {
             this.refreshInfo.isFinished = true
-          }
-          let tmpArr = []
-          if (list && Array.isArray(list) && list.length > 0) {
-            list.forEach(item => {
-              item._createTime = formatTime(item.createTime)
-              item._operTime = formatTime(item.operTime)
-              let obj = { ...item }
-              obj.bizTypeInfo = EopBizTypeEnum[item.bizType]
-              obj.ewLevelInfo = EwLevel[item.ewLevel || 'DEFAULT']
-              tmpArr.push(obj)
-            })
-          }
-          if (this.listQuery.current === 1) {
-            this.listData = Object.assign([], [...tmpArr])
-          } else {
-            this.listData = Object.assign([], [this.listData.concat(tmpArr)])
-          }
-          if (parseInt(total) === this.listData.length) {
-            this.refreshInfo.isFinished = true
-          }
-          this.loaded()
-        })
-        .catch(err => {
-          this.refreshInfo.isFinished = true
-          this.loaded()
-          console.log('fetchTaskList-err===>', err);
-        })
+            this.loaded()
+            console.log('fetchTaskList-err===>', err);
+          })
+      } catch (err) {
+        console.log('initData-err', err);
+      }
     },
     loaded() {
       this.refreshInfo.isRefreshing = false
@@ -154,8 +166,9 @@ export default {
 
     // 下拉刷新
     onPullingDown() {
-      this.listQuery.current = 1,
-        this.initData()
+      this.listQuery.current = 1;
+      this.listData = []
+      this.initData()
     },
 
     // 上拉加载更多
