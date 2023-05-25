@@ -312,3 +312,12 @@ export function processFileUrl(fileId) {
   const path = `/api/fnd/file/preview/${fileId}?accessToken=${accessToken}`;
   return isDev ? `${baseUrl}${path}` : baseUrl + path;
 }
+
+/**
+ * 外部链接验证
+ * @param {String} path
+ * @returns {Boolean}
+ */
+export function isExternal(path) {
+  return /^(https?:|mailto:|tel:)/.test(path);
+}

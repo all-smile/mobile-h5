@@ -1,0 +1,58 @@
+.overlay_ware {
+  .sliderBg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .sliderCont {
+    width: 2.9rem;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 101;
+    padding-top: 0.2rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.16rem;
+    overflow-y: auto;
+    box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+  .handle-btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 0.44rem !important;
+    width: 2.9rem;
+    .cus-btn {
+      height: 0.44rem !important;
+      width: 50%;
+      font-size: 0.16rem;
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .overlay-slider-enter-active {
+    transition: all 0.3s ease;
+  }
+  .overlay-slider-leave-active {
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  .overlay-slider-enter,
+  .overlay-slider-leave-to {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+}
