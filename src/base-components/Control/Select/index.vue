@@ -9,10 +9,8 @@
     @failed="onFailed"
   >
     <van-field
-      :class="{
-        control: true,
-        control_must: itemData.isNotNull && !isDisable,
-      }"
+      class="control"
+      :required="itemData.isNotNull === 1 && !isDisable"
       :rules="rules"
       v-model="controlForm.value"
       :label="itemData.showLabel ? itemData.fieldLabel : ''"

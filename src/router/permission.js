@@ -7,6 +7,7 @@ import { accessToken, isDev } from "@/libs/config";
 const DPSQ = ["/main/nopage", "/main/checkFace"];
 
 const whitelist = [
+  "/home",
   "/list",
   "/main/nopage",
   "/main/checkFace",
