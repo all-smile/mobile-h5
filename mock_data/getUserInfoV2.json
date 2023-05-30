@@ -1,0 +1,16 @@
+{
+  "errorCode": null,
+  "message": null,
+  "sign": null,
+  "signedValue": {
+    "orgName": "国知鸿雲股份有限公司",
+    "tokenId": "20314738223421307954",
+    "phone": "13****22",
+    "action": "bushand",
+    "pgBusinessNo": null,
+    "userRole": "11",
+    "userId": "DPHY",
+    "platform": "DPHY"
+  },
+  "status": "OK"
+}
