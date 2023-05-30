@@ -17,9 +17,43 @@ module.exports = {
   parallel: require("os").cpus().length > 1, // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
   pwa: {}, // 向 PWA 插件传递选项。
   chainWebpack: (config) => {
+    config.devtool = () => {
+      return "source-map";
+    };
     config.plugin("html").tap((args) => {
       args[0].title = "H5前端框架";
       return args;
+    });
+    // 拆分 chunk ，抽离公共代码
+    // config.optimization.runtimeChunk(true)
+    config.optimization.splitChunks({
+      chunks: "all",
+      cacheGroups: {
+        vue: {
+          name: "chunk-vuejs",
+          priority: 20,
+          test: /[\\/]node_modules[\\/]_?vue(.*)/,
+        },
+        elementUI: {
+          name: "chunk-elementUI",
+          priority: 20,
+          test: /[\\/]node_modules[\\/]_?element-ui(.*)/,
+        },
+        vendors: {
+          name: "chunk-vendors",
+          priority: 20,
+          test: /[\\/]node_modules[\\/]/,
+          minChunks: 4,
+          chunks: "initial",
+        },
+        common: {
+          name: "chunk-commons",
+          priority: 5,
+          test: resolve("src/components"),
+          minChunks: 3,
+          reuseExistingChunk: true,
+        },
+      },
     });
     // 引入less全局变量
     const oneOfsMap = config.module.rule("less").oneOfs.store;
@@ -50,6 +84,22 @@ module.exports = {
       .set("@utils", resolve("src/libs/utils"))
       .set("@views", resolve("src/views"))
       .set("@store", resolve("src/store"));
+
+    // set svg loader
+    config.module.rule("svg").exclude.add(resolve("src/assets/icons")).end();
+    config.module
+      .rule("icons")
+      // .use('cache-loader')
+      // .loader('cache-loader')
+      .test(/\.svg$/)
+      .include.add(resolve("src/assets/icons"))
+      .end()
+      .use("svg-sprite-loader")
+      .loader("svg-sprite-loader")
+      .options({
+        symbolId: "icon-[name]",
+      })
+      .end();
   },
   css: {
     extract: IS_PROD,
