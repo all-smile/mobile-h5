@@ -1,5 +1,5 @@
 /**
- * 手机基础控件，用来做动态组件
+ * 基础控件，用来做动态组件
  */
 import Text from "./Text/index.vue";
 import InputNumber from "./InputNumber/index.vue";
