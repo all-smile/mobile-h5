@@ -2,7 +2,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const CompressionPlugin = require("compression-webpack-plugin"); // gzip压缩，配合nginx
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin"); // 代码压缩
-const JavaScriptObfuscator = require("webpack-obfuscator");
+// const JavaScriptObfuscator = require("webpack-obfuscator");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 
@@ -16,24 +16,24 @@ let _plugins = [
     clear: false,
   }),
   // JavaScriptObfuscator 插件影响百度人脸活体检测sdk的使用，打包部署后会出现页面崩溃的现象
-  new JavaScriptObfuscator(
-    {
-      // 压缩 无换行
-      compact: true,
-      // 启用干扰调试， 会导致浏览器假死
-      debugProtection: runTime === "prod",
-      // 启用干扰调试， 会导致浏览器加斯
-      debugProtectionInterval: runTime === "prod",
-      // 禁用console,通过用空函数替换他们来实现
-      disableConsoleOutput: runTime === "prod",
-      // 匹配不加固的代码绝对路径， 示例： 不加固依赖包： ['**/node_modules/**']
-      exclude: ["**/node_modules/**", "**/src/libs/sdk/**"],
-      // 允许在特定域，子域上运行混淆后的代码(白名单)
-      domainLock: [],
-    },
-    ["**/node_modules/**"],
-    ["**/src/libs/sdk/**"]
-  ),
+  // new JavaScriptObfuscator(
+  //   {
+  //     // 压缩 无换行
+  //     compact: true,
+  //     // 启用干扰调试， 会导致浏览器假死
+  //     debugProtection: runTime === "prod",
+  //     // 启用干扰调试， 会导致浏览器加斯
+  //     debugProtectionInterval: runTime === "prod",
+  //     // 禁用console,通过用空函数替换他们来实现
+  //     disableConsoleOutput: runTime === "prod",
+  //     // 匹配不加固的代码绝对路径， 示例： 不加固依赖包： ['**/node_modules/**']
+  //     exclude: ["**/node_modules/**", "**/src/libs/sdk/**"],
+  //     // 允许在特定域，子域上运行混淆后的代码(白名单)
+  //     domainLock: [],
+  //   },
+  //   ["**/node_modules/**"],
+  //   ["**/src/libs/sdk/**"]
+  // ),
   // 代码压缩
   new UglifyJsPlugin({
     // 压缩配置 uglifyOptions
