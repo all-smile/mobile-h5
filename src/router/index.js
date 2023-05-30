@@ -60,7 +60,7 @@ const routes = [
 ];
 
 const router = new Router({
-  mode: "history",
+  mode: "hash", // 'history',
   base: process.env.VUE_APP_PATH,
   routes,
 });
