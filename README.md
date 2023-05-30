@@ -1,6 +1,28 @@
-# financial-innovation-h5
+# mobile-h5
 
-## Project setup
+## 访问地址
+
+本项目由 GitHub Actions 强力驱动
+
+地址：https://home.i-xiao.space/mobile-h5/
+## 项目介绍
+
+本工程是移动端H5的框架模板，集成了前端工程设计的基础模块
+
+- 移动端适配
+- 菜单权限
+- 提供基础控件，支持页面配置化开发
+- 通用业务组件（移动端头部组件、空页面、错误页面、加载页面）
+- 工具函数（指令、过滤器、utils）
+- svg引用封装
+- 全局Store存取
+- 接口调用封装
+- 接口报文传输加解密
+- 接口重发控制
+- 打包配置
+- github workflows 配置
+- 百度人脸活体检测
+## 安装依赖
 
 ```
 yarn
@@ -8,27 +30,27 @@ yarn
 or: npm install
 ```
 
-### Compiles and hot-reloads for development
+### 本地开发
 
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+### 本地打包
 
 ```
+# 1. 生成dist包
 npm run build
+
+# 2. 生成zip包
+npm run zip
 ```
 
-### Lints and fixes files
+### lint检测
 
 ```
 npm run lint
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Git 规范 (\*建议)
 
