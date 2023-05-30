@@ -15,20 +15,26 @@
   "dependencies": {
     "@vant/touch-emulator": "^1.2.0",
     "axios": "^0.21.1",
+    "compression-webpack-plugin": "^10.0.0",
     "core-js": "^3.6.5",
     "crypto-js": "^4.1.1",
     "element-ui": "^2.15.13",
     "execa": "^5.1.1",
     "face-api.js": "^0.22.2",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "javascript-obfuscator": "2.19.0",
     "jsencrypt": "^3.3.2",
     "moment": "^2.29.1",
+    "progress-bar-webpack-plugin": "^2.1.0",
     "querystring": "^0.2.1",
+    "speed-measure-webpack-plugin": "^1.5.0",
     "svg-sprite-loader": "^6.0.11",
     "vant": "^2.12.12",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
-    "vuex-router-sync": "^5.0.0"
+    "vuex-router-sync": "^5.0.0",
+    "webpack-obfuscator": "^3.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
@@ -51,6 +57,7 @@
     "node-zip": "^1.1.1",
     "prettier": "^2.2.1",
     "sass-resources-loader": "^2.1.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {

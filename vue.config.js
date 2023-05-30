@@ -1,6 +1,9 @@
 const path = require("path");
+const plugins = require("./compose-plugin").Plugins;
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 const resolve = (dir) => path.join(__dirname, dir);
+const smp = new SpeedMeasurePlugin();
 
 console.log("VUE_APP_PATH===", process.env.VUE_APP_PATH);
 console.log("NODE_ENV===", process.env.NODE_ENV);
@@ -171,9 +174,13 @@ module.exports = {
       },
     },
   },
-  // configureWebpack: {
-  //   optimization: {
-  //     usedExports: true,
-  //   },
-  // },
+  configureWebpack: smp.wrap(
+    IS_PROD
+      ? {
+          plugins,
+        }
+      : {}
+  ),
+  // IE, SCRIPT1006: 缺少 ')'
+  transpileDependencies: ["crypto-js"],
 };
