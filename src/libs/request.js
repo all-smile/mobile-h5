@@ -26,7 +26,7 @@ let retryDelay = 200; // 重发时延
 // 1. 创建新的axios实例，
 const instance = axios.create({
   // 公共接口--这里注意后面会讲
-  baseURL: !isDev ? baseUrl : "", // process.env.VUE_APP_BASEURL + process.env.VUE_APP_PREURL,
+  baseURL: !isDev ? baseUrl : "",
   // `withCredentials`指示是否跨站点访问控制请求
   withCredentials: true,
 

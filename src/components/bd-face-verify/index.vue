@@ -169,7 +169,7 @@ export default {
         },
         isOriginImage: false,
         // 模型⽂件url前缀, 默认是当前⻚⾯根路径,可不传
-        modelPath: IS_PROD ? process.env.VUE_APP_PATH : '.', // IS_PROD ? process.env.VUE_APP_RUNPATH : '.'; // '/models',
+        modelPath: IS_PROD ? process.env.VUE_APP_RUNPATH : '.',
         autoloadModels: false,
         // 与摄像头视口高度一致
         vbox: [216, 216],
